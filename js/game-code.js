@@ -16,6 +16,7 @@
 				this.maxSpeed = 12;
 				
 				this.image = asteroidImage;
+				this.explosionSound = createAudio("game-assets/explosion-05.wav");
 				this.explosionImage = loadImage("game-assets/explosion-2.png");
 				this.load();
 			}
@@ -50,7 +51,7 @@
 				{
 					this.exploded = true;
 					this.image = this.explosionImage; // change the asteroid image with explosion
-					this.explosionSoundPD();
+					this.explosionSound.play();
 					
 					return true; // if explode returns true player loses a life
 				}
@@ -62,28 +63,23 @@
 				{
 					this.exploded = true;
 					this.image = this.explosionImage; // change the asteroid image with explosion
-					this.explosionSoundPD();
+					this.explosionSound.play();
 					
 					return true; 
 				}
-			}
-			
-			explosionSoundPD()
-			{
-				Pd.send('collision', []);
 			}
 		}
 		
 		class MissilePack
 		{
 			//missilePacks = [];
-			loadSound = "";
 			
 			constructor()
 			{
 				this.x = 0;
 				this.y = 0;
 				this.image = loadImage("game-assets/blue-box-woood.png");
+				this.loadSound = createAudio("game-assets/load-missiles.wav");
 			}
 			
 			newMissilePack(score)
@@ -122,7 +118,6 @@
 					this.y = 0; // missilepack is taken - new missilePack may be created
 					//console.log('Missile pack is collected!');
 										
-					Pd.send('collect', []);
 				}	
 			}
 		}
@@ -272,7 +267,7 @@
 			startEngineSound()
 			{
 				console.log("Start sound.");
-				Pd.send('blip',[]);
+				Pd.send('collision',[]);
 			}
 			
 			stopEngineSound()
