@@ -322,7 +322,7 @@
 			{
 				for (let i = 0; i < livesLeft; i++)
 				{
-					image(this.lives[i], (i*40+10), 20); // defining the position of displayed objects
+					image(this.lives[i], (i*40+115), 20); // defining the position of displayed objects
 				}
 			}
 			
@@ -377,7 +377,7 @@
 		function setup() 
 		{
 			spaceShipLives = new SpaceShipLives();
-			createCanvas(1280, 591); // canvas size tied to the background-image
+			createCanvas(1190, 591); // canvas size tied to the background-image
 			asteroidSwarm = new AsteroidSwarm(); // it is going to handle the asteroids
 			
 			setupTouchScreenControls();
@@ -503,9 +503,9 @@
 		function showMessages()
 		{
 			textSize(30);
-			text("Score: " + asteroidSwarm.asteroidsPassed, 30, 135); // Score is shown
+			text("Score: " + asteroidSwarm.asteroidsPassed, 130, 135); // Score is shown
 			
-			text("Weapons: " + spaceship.missiles, 1120, 60); // Score is shown
+			text("Weapons: " + spaceship.missiles, 1000, 55); // Score is shown
 		
 			if (!startGame)
 				rect(280, 280, 680, 140); // rectangle (window) to show the message to start game
