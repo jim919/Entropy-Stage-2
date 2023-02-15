@@ -117,7 +117,7 @@
 					spaceship.addMissiles(3);
 					this.y = 0; // missilepack is taken - new missilePack may be created
 					//console.log('Missile pack is collected!');
-										
+					this.loadSound.play();					
 				}	
 			}
 		}
